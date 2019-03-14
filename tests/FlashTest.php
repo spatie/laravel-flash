@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace Spatie\Flash\Tests;
 
 use Orchestra\Testbench\TestCase;
 use Spatie\Flash\Flash;

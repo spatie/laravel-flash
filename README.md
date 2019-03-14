@@ -6,7 +6,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-flash.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-flash)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-flash.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-flash)
 
-This is a small, simple package to send flash messages in Laravel apps.  A flash message is a message that is carried over the next request.
+This is a lightweight package to send flash messages in Laravel apps.  A flash message is a message that is carried over the next request.
 
 This is how it can be used:
 
@@ -17,7 +17,7 @@ class MyController
     {
         // …
 
-        flash(__('Post saved!'), 'my-class');
+        flash('My message', 'my-class');
 
         return redirect()->to();
     }
@@ -44,18 +44,100 @@ composer require spatie/laravel-flash
 
 ## Usage
 
-``` php
-$skeleton = new Spatie\Skeleton();
-echo $skeleton->echoPhrase('Hello, Spatie!');
+Here is an example on how to flash a message.
+
+```php
+class MyController
+{
+    public function store()
+    {
+        // …
+
+        flash('My message');
+
+        return redirect()->to();
+    }
+}
 ```
 
-### Testing
+In your view you can use it like this
+
+```blade
+@if(flash()->message)
+    <div>
+        {{ flash()->message }}
+    </div>
+@endif
+```
+
+
+### Using a class
+
+You can add a class as the second parameter.
+
+```php
+class MyController
+{
+    public function store()
+    {
+        // …
+
+        flash('My message', 'my-class'));
+
+        return redirect()->to();
+    }
+}
+```
+
+In your view you can use the class like this
+
+```blade
+@if(flash()->message)
+    <div class="{{ flash->class }}>
+        {{ flash()->message }}
+    </div>
+@endif
+```
+
+You can also set an array of classes.
+
+```php
+ flash('My message', ['my-class', 'another-class']));
+```
+
+
+### Adding your own methods
+
+If you don't want to specify a class each time you want flash a message you can add a function to `flash`.
+
+Here's an example
+
+```php
+// this would probably go in a service provider
+
+\Spatie\Flash\Flash::macro('warning', function(string $message) {
+    return $this->flash(new Message($message, 'alert alert-warning'));
+});
+```
+
+You can now use a `warning` method on `flash`:
+
+```php
+flash()->warning('Look above you!)
+```
+
+
+## Alternatives
+
+This package is intended to be lightweight. If you need things like multiple messages, support for Bootstrap, or overlays, take a look at [this excellent flash package](https://github.com/laracasts/flash) by [Jeffrey Way](https://github.com/JeffreyWay).
+
+###Testing
 
 ``` bash
 composer test
 ```
 
-### Changelog
+## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
