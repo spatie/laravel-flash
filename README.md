@@ -126,7 +126,6 @@ You can now use a `warning` method on `flash`:
 flash()->warning('Look above you!)
 ```
 
-
 ## Alternatives
 
 This package is intended to be lightweight. If you need things like multiple messages, support for Bootstrap, overlays, ... take a look at [this excellent flash package](https://github.com/laracasts/flash) by [Jeffrey Way](https://github.com/JeffreyWay).
