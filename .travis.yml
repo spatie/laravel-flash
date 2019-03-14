@@ -7,16 +7,6 @@ cache:
 matrix:
   fast_finish: true
   include:
-    - php: 7.1
-      env: LARAVEL='5.5.*' TESTBENCH='3.5.*' COMPOSER_FLAGS='--prefer-lowest'
-    - php: 7.1
-      env: LARAVEL='5.5.*' TESTBENCH='3.5.*' COMPOSER_FLAGS='--prefer-stable'
-    - php: 7.2
-      env: LARAVEL='5.5.*' TESTBENCH='3.5.*' COMPOSER_FLAGS='--prefer-lowest'
-    - php: 7.2
-      env: LARAVEL='5.5.*' TESTBENCH='3.5.*' COMPOSER_FLAGS='--prefer-stable'
-    - php: 7.3
-      env: LARAVEL='5.5.*' TESTBENCH='3.5.*' COMPOSER_FLAGS='--prefer-lowest'
     - php: 7.3
       env: LARAVEL='5.5.*' TESTBENCH='3.5.*' COMPOSER_FLAGS='--prefer-stable'
     - php: 7.1
