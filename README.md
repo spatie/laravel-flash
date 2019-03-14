@@ -11,7 +11,7 @@ This is a lightweight package to send flash messages in Laravel apps.  A flash m
 This is how it can be used:
 
 ```php
-class MyController
+class MySpecialSnowflakeController
 {
     public function store()
     {
@@ -19,7 +19,7 @@ class MyController
 
         flash('My message', 'my-class');
 
-        return redirect()->to();
+        return back();
     }
 }
 ```
@@ -55,7 +55,7 @@ class MyController
 
         flash('My message');
 
-        return redirect()->to();
+        return back();
     }
 }
 ```
@@ -84,7 +84,7 @@ class MyController
 
         flash('My message', 'my-class'));
 
-        return redirect()->to();
+        return back();
     }
 }
 ```
