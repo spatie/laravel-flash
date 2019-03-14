@@ -66,5 +66,3 @@ install:
 script:
   - vendor/bin/phpunit
 
-after_script:
-  - php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
