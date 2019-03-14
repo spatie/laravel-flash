@@ -1,6 +1,6 @@
 {
     "name": "spatie/laravel-flash",
-    "description": "Send flash messages",
+    "description": "A lightweight package to flash messages",
     "keywords": [
         "spatie",
         "laravel-flash"
