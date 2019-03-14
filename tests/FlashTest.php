@@ -65,6 +65,20 @@ class FlashTest extends TestCase
     }
 
     /** @test */
+    public function when_passing_a_class_name_that_is_registered_as_method_it_will_call_that_method()
+    {
+        flash('my message', 'custom');
+        $this->assertEquals('custom', flash()->class);
+
+        Flash::levels([
+            'custom' => 'overridden-custom',
+        ]);
+
+        flash('my message', 'custom');
+        $this->assertEquals('overridden-custom', flash()->class);
+    }
+
+    /** @test */
     public function empty_flash_message_returns_null()
     {
         $this->assertNull(flash()->message);

@@ -36,6 +36,14 @@ class Flash
 
     public function flash(Message $message): void
     {
+        if ($message->class && static::hasMacro($message->class)) {
+            $methodName = $message->class;
+
+            $this->$methodName($message->message);
+
+            return;
+        }
+
         $this->session->flash('laravel_flash_message', $message->toArray());
     }
 
