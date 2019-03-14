@@ -18,11 +18,16 @@ class Flash
         $this->session = $session;
     }
 
+    public function __get(string $name)
+    {
+        return $this->getMessage()->$name ?? null;
+    }
+
     public function getMessage(): ?Message
     {
         $flashedMessageProperties = $this->session->get('laravel_flash_message');
 
-        if (! $flashedMessageProperties) {
+        if (!$flashedMessageProperties) {
             return null;
         }
 
@@ -34,8 +39,13 @@ class Flash
         $this->session->flash('laravel_flash_message', $message->toArray());
     }
 
-    public function __get($name)
+    public static function levels(array $methodClasses): void
     {
-        return $this->getMessage()->$name ?? null;
+        foreach($methodClasses as $method => $classes)
+        {
+            self::macro($method, function (string $message) use ($classes) {
+                return $this->flash(new Message($message, $classes));
+            });
+        }
     }
 }

@@ -48,6 +48,23 @@ class FlashTest extends TestCase
     }
 
     /** @test */
+    public function multiple_methods_can_be_added_in_one_go()
+    {
+        Flash::levels([
+            'warning' => 'alert-warning',
+            'error' => 'alert-error',
+        ]);
+
+        flash()->warning('my warning');
+        $this->assertEquals('my warning', flash()->message);
+        $this->assertEquals('alert-warning', flash()->class);
+
+        flash()->error('my error');
+        $this->assertEquals('my error', flash()->message);
+        $this->assertEquals('alert-error', flash()->class);
+    }
+
+    /** @test */
     public function empty_flash_message_returns_null()
     {
         $this->assertNull(flash()->message);

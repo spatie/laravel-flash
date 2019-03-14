@@ -108,7 +108,29 @@ You can also set an array of classes.
 
 ### Adding your own methods
 
-If you don't want to specify a class each time you want flash a message you can add a function to `flash`.
+If you don't want to specify a class each time you want flash a message you can add a functions to `flash`.
+
+The easiest way is by passing an array to the `levels` method. The key is the method name that should be added to `flash()`. The value is the css class that just be used when rendering the message.
+
+```php
+// this would probably go in a service provider
+
+\Spatie\Flash\Flash::levels([
+    'success' => 'alert-info',
+    'warning' => 'alert-warning',
+    'error' => 'alert-eror',
+]);
+```
+
+This will make these methods available on `flash`:
+
+```php
+flash()->succes('Hurray');
+flash()->warning('Mayybeee');
+flash()->error('Oh Oh');
+```
+
+You can also add a method to `flash` by using `macro`.
 
 Here's an example:
 
