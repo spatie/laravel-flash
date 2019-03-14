@@ -16,10 +16,6 @@ function flash(string $text = null, $class = null): Flash
         return $flash;
     }
 
-    if (is_array($class)) {
-        $class = implode(' ', $class);
-    }
-
     $message = new Message($text, $class);
 
     $flash->flash($message);
