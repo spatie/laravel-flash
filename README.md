@@ -89,7 +89,7 @@ class MyController
 }
 ```
 
-In your view you can use the class like this
+In your view you can use the class like this:
 
 ```blade
 @if(flash()->message)
@@ -110,7 +110,7 @@ You can also set an array of classes.
 
 If you don't want to specify a class each time you want flash a message you can add a function to `flash`.
 
-Here's an example
+Here's an example:
 
 ```php
 // this would probably go in a service provider
