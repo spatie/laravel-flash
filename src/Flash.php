@@ -36,6 +36,6 @@ class Flash
 
     public function __get($name)
     {
-        return $this->getMessage()->$name;
+        return $this->getMessage()->$name ?? null;
     }
 }

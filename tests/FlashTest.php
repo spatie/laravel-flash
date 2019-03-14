@@ -46,4 +46,10 @@ class FlashTest extends TestCase
         $this->assertEquals('my message', flash()->message);
         $this->assertEquals('my-info-class', flash()->class);
     }
+
+    /** @test */
+    public function empty_flash_message_returns_null()
+    {
+        $this->assertNull(flash()->message);
+    }
 }
