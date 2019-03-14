@@ -2,8 +2,8 @@
 
 namespace Spatie\Flash;
 
-use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Traits\Macroable;
+use Illuminate\Contracts\Session\Session;
 
 /** @mixin \Spatie\Flash\Message */
 class Flash

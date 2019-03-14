@@ -2,9 +2,9 @@
 
 namespace Spatie\Flash\Tests;
 
-use Orchestra\Testbench\TestCase;
 use Spatie\Flash\Flash;
 use Spatie\Flash\Message;
+use Orchestra\Testbench\TestCase;
 
 class FlashTest extends TestCase
 {
@@ -37,7 +37,7 @@ class FlashTest extends TestCase
     /** @test */
     public function the_flash_function_is_macroable()
     {
-        Flash::macro('info', function(string $message) {
+        Flash::macro('info', function (string $message) {
             return $this->flash(new Message($message, 'my-info-class'));
         });
 
