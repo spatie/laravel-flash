@@ -125,7 +125,7 @@ use Spatie\Flash\Message;
 You can now use a `warning` method on `flash`:
 
 ```php
-flash()->warning('Look above you!')
+flash()->warning('Look above you!');
 ```
 
 ## Alternatives
