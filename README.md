@@ -27,7 +27,7 @@ class MyController
 In your view you can do this:
 
 ```blade
-@if(flash())
+@if(flash()->message)
     <div class="{{ flash()->class }}">
         {{ flash()->message }}
     </div>
