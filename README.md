@@ -116,7 +116,7 @@ The easiest way is by passing an array to the `levels` method. The key is the me
 // this would probably go in a service provider
 
 \Spatie\Flash\Flash::levels([
-    'success' => 'alert-info',
+    'success' => 'alert-success',
     'warning' => 'alert-warning',
     'error' => 'alert-eror',
 ]);
@@ -128,6 +128,12 @@ This will make these methods available on `flash`:
 flash()->succes('Hurray');
 flash()->warning('Mayybeee');
 flash()->error('Oh Oh');
+```
+
+When you've added your own method, you can also pass that method name as a second parameter to `flash` itself.
+
+```php
+flash('Hurray', 'success'); // `flash()->class` will output `alert-success`
 ```
 
 You can also add a method to `flash` by using `macro`.
