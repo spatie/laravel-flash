@@ -115,6 +115,8 @@ Here's an example
 ```php
 // this would probably go in a service provider
 
+use Spatie\Flash\Message;
+
 \Spatie\Flash\Flash::macro('warning', function(string $message) {
     return $this->flash(new Message($message, 'alert alert-warning'));
 });
@@ -123,7 +125,7 @@ Here's an example
 You can now use a `warning` method on `flash`:
 
 ```php
-flash()->warning('Look above you!)
+flash()->warning('Look above you!');
 ```
 
 ## Alternatives
