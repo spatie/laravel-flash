@@ -133,7 +133,7 @@ flash()->error('Oh Oh');
 When you've added your own method, you can also pass that method name as a second parameter to `flash` itself.
 
 ```php
-flash('Hurray', 'success'); // `flash()->class` will output `alert-success`
+flash('Hurray', 'success'); // `flash()->class` will output 'alert-success'
 ```
 
 You can also add a method to `flash` by using `macro`.
