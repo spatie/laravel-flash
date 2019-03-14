@@ -27,7 +27,7 @@ class Flash
     {
         $flashedMessageProperties = $this->session->get('laravel_flash_message');
 
-        if (!$flashedMessageProperties) {
+        if (! $flashedMessageProperties) {
             return null;
         }
 
@@ -41,8 +41,7 @@ class Flash
 
     public static function levels(array $methodClasses): void
     {
-        foreach($methodClasses as $method => $classes)
-        {
+        foreach ($methodClasses as $method => $classes) {
             self::macro($method, function (string $message) use ($classes) {
                 return $this->flash(new Message($message, $classes));
             });
