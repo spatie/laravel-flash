@@ -115,6 +115,8 @@ Here's an example
 ```php
 // this would probably go in a service provider
 
+use Spatie\Flash\Message;
+
 \Spatie\Flash\Flash::macro('warning', function(string $message) {
     return $this->flash(new Message($message, 'alert alert-warning'));
 });
