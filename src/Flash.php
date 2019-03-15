@@ -44,7 +44,7 @@ class Flash
             return;
         }
 
-        $this->flashMessage($message->toArray());
+        $this->flashMessage($message);
     }
 
     public function flashMessage(Message $message): void
