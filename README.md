@@ -6,7 +6,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-flash.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-flash)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-flash.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-flash)
 
-This is a lightweight package to send flash messages in Laravel apps.  A flash message is a message that is carried over the next request.
+This is a lightweight package to send flash messages in Laravel apps.  A flash message is a message that is carried over to the next request by storing it in the Session.
 
 This is how it can be used:
 
@@ -71,9 +71,9 @@ In your view you can use it like this
 ```
 
 
-### Using a class
+### Using a class name to style the displayed message
 
-You can add a class as the second parameter.
+You can add a class as the second parameter. This is typically used to style the output in your HTML.
 
 ```php
 class MyController
@@ -99,18 +99,18 @@ In your view you can use the class like this:
 @endif
 ```
 
-You can also set an array of classes.
+You can also set an array of classes. These will be output by `flash()->class` by imploding the array with a space-delimiter.
 
 ```php
- flash('My message', ['my-class', 'another-class']));
+ flash('My message', ['my-class', 'another-class'])); // flash()->class output is: 'my-class another-class'
 ```
 
 
 ### Adding your own methods
 
-If you don't want to specify a class each time you want flash a message you can add a functions to `flash`.
+If you don't want to specify a class each time you flash a message you can add a method name to `flash`.
 
-The easiest way is by passing an array to the `levels` method. The key is the method name that should be added to `flash()`. The value is the css class that just be used when rendering the message.
+The easiest way is by passing an array to the `levels` method. The key is the method name that should be added to `flash()`. The value is the class that will automatically be used when rendering the message.
 
 ```php
 // this would probably go in a service provider
@@ -122,15 +122,15 @@ The easiest way is by passing an array to the `levels` method. The key is the me
 ]);
 ```
 
-This will make these methods available on `flash`:
+The above example will make these methods available on `flash`:
 
 ```php
-flash()->succes('Hurray');
+flash()->success('Hurray');
 flash()->warning('Mayybeee');
 flash()->error('Oh Oh');
 ```
 
-When you've added your own method, you can also pass that method name as a second parameter to `flash` itself.
+Additionally, when you've added your own method, you can also pass that method name as a second parameter to `flash` itself:
 
 ```php
 flash('Hurray', 'success'); // `flash()->class` will output 'alert-success'
@@ -146,7 +146,7 @@ Here's an example:
 use Spatie\Flash\Message;
 
 \Spatie\Flash\Flash::macro('warning', function(string $message) {
-    return $this->flashMessage(new Message($message, 'alert alert-warning'));
+    return $this->flash(new Message($message, 'alert alert-warning'));
 });
 ```
 
