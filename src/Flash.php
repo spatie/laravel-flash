@@ -44,6 +44,11 @@ class Flash
             return;
         }
 
+        $this->flashMessage($message->toArray());
+    }
+
+    public function flashMessage(Message $message): void
+    {
         $this->session->flash('laravel_flash_message', $message->toArray());
     }
 
@@ -51,7 +56,7 @@ class Flash
     {
         foreach ($methodClasses as $method => $classes) {
             self::macro($method, function (string $message) use ($classes) {
-                $this->session->flash('laravel_flash_message', (new Message($message, $classes))->toArray());
+                return $this->flashMessage(new Message($message, $classes));
             });
         }
     }
