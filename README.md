@@ -146,9 +146,11 @@ Here's an example:
 use Spatie\Flash\Message;
 
 \Spatie\Flash\Flash::macro('warning', function(string $message) {
-    return $this->flash(new Message($message, 'alert alert-warning'));
+    return $this->flashMessage(new Message($message, 'alert alert-warning'));
 });
 ```
+
+> Note the usage of `flashMessage` instead of `flash`. Due to how macros and the `Flash::flash` method work this would result in a circular method call.
 
 You can now use a `warning` method on `flash`:
 
