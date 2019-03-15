@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-flash` will be documented in this file
 
+## 1.2.1 - 2019-03-15
+
+- fix circular reference
+
 ## 1.2.0 - 2019-03-14
 
 - the second parameter of `flash` will now lookup a preregistered macro
