@@ -150,8 +150,6 @@ use Spatie\Flash\Message;
 });
 ```
 
-> Note the usage of `flashMessage` instead of `flash`. Due to how macros and the `Flash::flash` method work this would result in a circular method call.
-
 You can now use a `warning` method on `flash`:
 
 ```php
