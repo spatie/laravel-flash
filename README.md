@@ -158,7 +158,7 @@ flash()->warning('Look above you!');
 
 ## Alternatives
 
-This package is intended to be lightweight. If you need things like multiple messages, support for Bootstrap, overlays, ... take a look at [this excellent flash package](https://github.com/laracasts/flash) by [Jeffrey Way](https://github.com/JeffreyWay).
+This package is intended to be lightweight. If you need things like multiple messages, support for Bootstrap, overlays, ... take a look at [this excellent flash package](https://github.com/laracasts/flash) by [Jeffrey Way](https://github.com/JeffreyWay) or [Laraflash](https://github.com/coderello/laraflash) by [Ilya Sakovich](https://github.com/hivokas).
 
 ## Testing
 
