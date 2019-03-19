@@ -118,7 +118,7 @@ The easiest way is by passing an array to the `levels` method. The key is the me
 \Spatie\Flash\Flash::levels([
     'success' => 'alert-success',
     'warning' => 'alert-warning',
-    'error' => 'alert-eror',
+    'error' => 'alert-error',
 ]);
 ```
 
