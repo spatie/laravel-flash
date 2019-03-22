@@ -93,7 +93,7 @@ In your view you can use the class like this:
 
 ```blade
 @if(flash()->message)
-    <div class="{{ flash()->class }}>
+    <div class="{{ flash()->class }}">
         {{ flash()->message }}
     </div>
 @endif
