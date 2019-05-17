@@ -55,7 +55,7 @@ class Flash
     public static function levels(array $methodClasses): void
     {
         foreach ($methodClasses as $method => $classes) {
-            self::macro($method, function (string $message) use ($classes) {
+            self::macro($method, function ($message) use ($classes) {
                 return $this->flashMessage(new Message($message, $classes));
             });
         }

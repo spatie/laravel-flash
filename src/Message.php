@@ -4,14 +4,23 @@ namespace Spatie\Flash;
 
 class Message
 {
-    /** @var string */
+    /** @var string|array */
     public $message;
 
     /** @var string */
     public $class;
 
-    public function __construct(string $message, $class)
+    public function __construct($message, $class)
     {
+        if (is_array($message)) {
+            $concat = collect($message)->map(function ($msg) {
+                return '<li>' . $msg . '</li>';
+            })
+            ->implode('');
+
+            $message = '<ul>'. $concat .'</ul>';
+        }
+
         if (is_array($class)) {
             $class = implode(' ', $class);
         }

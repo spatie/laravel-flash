@@ -29,7 +29,7 @@ In your view you can do this:
 ```blade
 @if(flash()->message)
     <div class="{{ flash()->class }}">
-        {{ flash()->message }}
+        {!! flash()->message !!}
     </div>
 @endif
 ```
@@ -65,11 +65,24 @@ In your view you can use it like this
 ```blade
 @if(flash()->message)
     <div>
-        {{ flash()->message }}
+        {!! flash()->message !!}
     </div>
 @endif
 ```
 
+### Using an array of messages
+
+You can set an array of messages.
+
+```php
+flash(['First message', 'Second message']); // flash()->message output is: '<ul><li>First message</li><li>Second message</li></ul>'
+```
+
+With a class name:
+
+```php
+flash(['First message', 'Second message'], 'my-class');
+```
 
 ### Using a class name to style the displayed message
 
@@ -94,7 +107,7 @@ In your view you can use the class like this:
 ```blade
 @if(flash()->message)
     <div class="{{ flash()->class }}">
-        {{ flash()->message }}
+        {!! flash()->message !!}
     </div>
 @endif
 ```
@@ -102,9 +115,8 @@ In your view you can use the class like this:
 You can also set an array of classes. These will be output by `flash()->class` by imploding the array with a space-delimiter.
 
 ```php
- flash('My message', ['my-class', 'another-class'])); // flash()->class output is: 'my-class another-class'
+flash('My message', ['my-class', 'another-class']); // flash()->class output is: 'my-class another-class'
 ```
-
 
 ### Adding your own methods
 
