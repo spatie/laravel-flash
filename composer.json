@@ -41,5 +41,12 @@
     },
     "config": {
         "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Spatie\\Flash\\FlashServiceProvider"
+            ]
+        }
     }
 }

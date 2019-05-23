@@ -4,13 +4,13 @@ namespace Spatie\Flash;
 
 class Message
 {
-    /** @var string */
+    /** @var string|array */
     public $message;
 
     /** @var string */
     public $class;
 
-    public function __construct(string $message, $class)
+    public function __construct($message, $class)
     {
         if (is_array($class)) {
             $class = implode(' ', $class);

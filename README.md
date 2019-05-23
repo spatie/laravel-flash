@@ -27,11 +27,7 @@ class MySpecialSnowflakeController
 In your view you can do this:
 
 ```blade
-@if(flash()->message)
-    <div class="{{ flash()->class }}">
-        {{ flash()->message }}
-    </div>
-@endif
+@include('flash::message')
 ```
 
 ## Installation
@@ -63,13 +59,28 @@ class MyController
 In your view you can use it like this
 
 ```blade
-@if(flash()->message)
-    <div>
-        {{ flash()->message }}
-    </div>
-@endif
+@include('flash::message')
 ```
 
+> You can pass an array of messages to be rendered once as [laravel validations errors](https://laravel.com/docs/validation#quick-displaying-the-validation-errors)
+
+Here is an example:
+
+```php
+flash(['first message', 'second message', 'third message']);
+```
+
+Output HTML
+
+```html
+<div>
+    <ul>
+        <li>first message</li>
+        <li>second message</li>
+        <li>third message</li>
+    </ul>
+</div>
+```
 
 ### Using a class name to style the displayed message
 
@@ -92,11 +103,7 @@ class MyController
 In your view you can use the class like this:
 
 ```blade
-@if(flash()->message)
-    <div class="{{ flash()->class }}">
-        {{ flash()->message }}
-    </div>
-@endif
+@include('flash::message')
 ```
 
 You can also set an array of classes. These will be output by `flash()->class` by imploding the array with a space-delimiter.
@@ -154,6 +161,14 @@ You can now use a `warning` method on `flash`:
 
 ```php
 flash()->warning('Look above you!');
+```
+
+## Custom view
+
+You can custom the view:
+
+```bash
+php artisan vendor:publish --provider="Spatie\Flash\FlashServiceProvider"
 ```
 
 ## Alternatives
