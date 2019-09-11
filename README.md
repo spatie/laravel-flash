@@ -27,7 +27,7 @@ class MySpecialSnowflakeController
 In your view you can do this:
 
 ```blade
-@if(flash()->message)
+@if (flash()->message)
     <div class="{{ flash()->class }}">
         {{ flash()->message }}
     </div>
@@ -82,7 +82,7 @@ class MyController
     {
         // …
 
-        flash('My message', 'my-class'));
+        flash('My message', 'my-class');
 
         return back();
     }
@@ -92,7 +92,7 @@ class MyController
 In your view you can use the class like this:
 
 ```blade
-@if(flash()->message)
+@if (flash()->message)
     <div class="{{ flash()->class }}">
         {{ flash()->message }}
     </div>
@@ -145,7 +145,7 @@ Here's an example:
 
 use Spatie\Flash\Message;
 
-\Spatie\Flash\Flash::macro('warning', function(string $message) {
+\Spatie\Flash\Flash::macro('warning', function (string $message) {
     return $this->flashMessage(new Message($message, 'alert alert-warning'));
 });
 ```
