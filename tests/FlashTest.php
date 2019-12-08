@@ -2,9 +2,9 @@
 
 namespace Spatie\Flash\Tests;
 
+use Orchestra\Testbench\TestCase;
 use Spatie\Flash\Flash;
 use Spatie\Flash\Message;
-use Orchestra\Testbench\TestCase;
 
 class FlashTest extends TestCase
 {
