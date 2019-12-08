@@ -10,8 +10,7 @@ class Flash
 {
     use Macroable;
 
-    /** @var \Illuminate\Contracts\Session\Session */
-    protected $session;
+    protected Session $session;
 
     public function __construct(Session $session)
     {
@@ -55,9 +54,7 @@ class Flash
     public static function levels(array $methodClasses): void
     {
         foreach ($methodClasses as $method => $classes) {
-            self::macro($method, function (string $message) use ($classes) {
-                return $this->flashMessage(new Message($message, $classes));
-            });
+            self::macro($method, fn(string $message) => $this->flashMessage(new Message($message, $classes)));
         }
     }
 }

@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-flash` will be documented in this file
 
+## 1.4.0 - 2019-12-08
+
+- drop support for PHP 7.3
+
 ## 1.3.0 - 2019-09-04
 
 - add support for Laravel 6
