@@ -2,8 +2,8 @@
 
 namespace Spatie\Flash;
 
-use Illuminate\Support\Traits\Macroable;
 use Illuminate\Contracts\Session\Session;
+use Illuminate\Support\Traits\Macroable;
 
 /** @mixin \Spatie\Flash\Message */
 class Flash
@@ -54,7 +54,7 @@ class Flash
     public static function levels(array $methodClasses): void
     {
         foreach ($methodClasses as $method => $classes) {
-            self::macro($method, fn(string $message) => $this->flashMessage(new Message($message, $classes)));
+            self::macro($method, fn (string $message) => $this->flashMessage(new Message($message, $classes)));
         }
     }
 }
