@@ -108,7 +108,7 @@ In your view you can use the class like this:
 You can also set an array of classes. These will be output by `flash()->class` by imploding the array with a space-delimiter.
 
 ```php
- flash('My message', ['my-class', 'another-class'])); // flash()->class output is: 'my-class another-class'
+flash('My message', ['my-class', 'another-class']); // flash()->class output is: 'my-class another-class'
 ```
 
 
@@ -136,6 +136,20 @@ flash()->warning('Mayybeee');
 flash()->error('Oh Oh');
 ```
 
+The most likely scenario is that you want to consume the flash message in a view. You can use the `message`, `class` and `level` properties on the view.
+
+```blade
+@if (flash()->message)
+    <div class="{{ flash()->class }}">
+        {{ flash()->message }}
+    </div>
+
+    @if(flash()->level === 'error')
+        This was an error.
+    @endif
+@endif
+```
+
 Additionally, when you've added your own method, you can also pass that method name as a second parameter to `flash` itself:
 
 ```php
@@ -160,6 +174,20 @@ You can now use a `warning` method on `flash`:
 
 ```php
 flash()->warning('Look above you!');
+```
+
+You can pass the desired `level` as the third argument to `Message`.
+
+```php
+// in a service provider
+use Spatie\Flash\Message;
+
+\Spatie\Flash\Flash::macro('warning', function (string $message) {
+    return $this->flashMessage(new Message($message, 'alert alert-warning', 'my-level'));
+});
+
+// in the next request, after having flashed a message 
+flash()->level; // returns `my-level`
 ```
 
 ## Alternatives

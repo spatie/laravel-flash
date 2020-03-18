@@ -65,6 +65,31 @@ class FlashTest extends TestCase
     }
 
     /** @test */
+    public function it_can_get_the_flash_level_when_the_level_is_registered_using_the_macro()
+    {
+        Flash::macro('info', function (string $message) {
+            return $this->flash(new Message($message, 'my-info-class', 'info'));
+        });
+
+        flash()->info('my info message');
+
+        $this->assertEquals('info', flash()->level);
+    }
+
+    /** @test */
+    public function it_can_get_the_flash_level_when_levels_are_registering_in_one_go()
+    {
+        Flash::levels([
+            'warning' => 'alert-warning',
+            'error' => 'alert-error',
+        ]);
+
+        flash()->error('my error');
+
+        $this->assertEquals('error', flash()->level);
+    }
+
+    /** @test */
     public function when_passing_a_class_name_that_is_registered_as_method_it_will_call_that_method()
     {
         flash('my message', 'custom');

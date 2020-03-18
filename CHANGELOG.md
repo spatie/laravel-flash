@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-flash` will be documented in this file
 
+## 1.6.0 - 2020-03-18
+
+- add `level` property on `flash()`
+
 ## 1.5.0 - 2020-03-01
 
 - add support for Laravel 7

@@ -8,7 +8,9 @@ class Message
 
     public ?string $class;
 
-    public function __construct(string $message, $class = null)
+    public ?string $level;
+
+    public function __construct(string $message, $class = null, $level = null)
     {
         if (is_array($class)) {
             $class = implode(' ', $class);
@@ -17,6 +19,8 @@ class Message
         $this->message = $message;
 
         $this->class = $class;
+
+        $this->level = $level;
     }
 
     public function toArray(): array
@@ -24,6 +28,7 @@ class Message
         return [
             'message' => $this->message,
             'class' => $this->class,
+            'level' => $this->level,
         ];
     }
 }

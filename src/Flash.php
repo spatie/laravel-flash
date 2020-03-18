@@ -30,7 +30,11 @@ class Flash
             return null;
         }
 
-        return new Message($flashedMessageProperties['message'], $flashedMessageProperties['class']);
+        return new Message(
+            $flashedMessageProperties['message'],
+            $flashedMessageProperties['class'],
+            $flashedMessageProperties['level']
+        );
     }
 
     public function flash(Message $message): void
@@ -54,7 +58,7 @@ class Flash
     public static function levels(array $methodClasses): void
     {
         foreach ($methodClasses as $method => $classes) {
-            self::macro($method, fn (string $message) => $this->flashMessage(new Message($message, $classes)));
+            self::macro($method, fn (string $message) => $this->flashMessage(new Message($message, $classes, $method)));
         }
     }
 }
