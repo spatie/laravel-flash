@@ -2,7 +2,6 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-flash.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-flash)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spatie/laravel-flash/run-tests?label=tests)
-[![StyleCI](https://github.styleci.io/repos/175572658/shield?branch=master)](https://github.styleci.io/repos/175572658)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-flash.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-flash)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-flash.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-flash)
 
