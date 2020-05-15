@@ -4,11 +4,14 @@ namespace Spatie\Flash;
 
 class Message
 {
-    public string $message;
+    /** @var string */
+    public $message;
 
-    public ?string $class;
+    /** @var string */
+    public $class;
 
-    public ?string $level;
+    /** @var string */
+    public $level;
 
     public function __construct(string $message, $class = null, $level = null)
     {
