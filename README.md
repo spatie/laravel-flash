@@ -35,7 +35,11 @@ In your view you can do this:
 
 ## Support us
 
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us). 
+Learn how to create a package like this one, by watching our premium video course:
+
+[![Laravel Package training](https://spatie.be/github/package-training.jpg)](https://laravelpackage.training)
+
+We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
 We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
@@ -75,7 +79,6 @@ In your view you can use it like this
 @endif
 ```
 
-
 ### Using a class name to style the displayed message
 
 You can add a class as the second parameter. This is typically used to style the output in your HTML.
@@ -109,7 +112,6 @@ You can also set an array of classes. These will be output by `flash()->class` b
 ```php
 flash('My message', ['my-class', 'another-class']); // flash()->class output is: 'my-class another-class'
 ```
-
 
 ### Adding your own methods
 
