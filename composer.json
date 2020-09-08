@@ -17,10 +17,9 @@
     ],
     "require": {
         "php": "^7.4",
-        "illuminate/session": "^5.8|^6.0|^7.0"
+        "illuminate/session": "^5.8|^6.0|^7.0|^8.0"
     },
-    "require-dev": {
-    },
+    "require-dev": [],
     "autoload": {
         "psr-4": {
             "Spatie\\Flash\\": "src"
