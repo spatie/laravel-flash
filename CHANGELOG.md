@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-flash` will be documented in this file
 
+## 1.8.0 - 2020-11-27
+
+- add support for PHP 8
+
 ## 1.7.0 - 2020-09-08
 
 - add support for Laravel 8
