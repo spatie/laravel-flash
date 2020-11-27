@@ -1,6 +1,7 @@
 # A lightweight package to flash messages
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-flash.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-flash)
+![run-tests](https://github.com/spatie/laravel-flash/workflows/run-tests/badge.svg)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-flash.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-flash)
 
 This is a lightweight package to send flash messages in Laravel apps.  A flash message is a message that is carried over to the next request by storing it in the session. This package only supports one single flash message at a time.
