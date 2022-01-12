@@ -8,9 +8,8 @@ on:
 
 jobs:
     test:
-        runs-on: ${{ matrix.os }}
+        runs-on: [ubuntu-latest]
         strategy:
-            runs-on: ${{ matrix.os }}
             fail-fast: false
             matrix:
                 os: [ubuntu-latest]
