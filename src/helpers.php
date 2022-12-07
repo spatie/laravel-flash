@@ -4,8 +4,8 @@ use Spatie\Flash\Flash;
 use Spatie\Flash\Message;
 
 /**
- * @param string $text
- * @param string|array $class
+ * @param  string  $text
+ * @param  string|array  $class
  */
 function flash(string $text = null, $class = null): Flash
 {
