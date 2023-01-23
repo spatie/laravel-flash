@@ -13,11 +13,17 @@ jobs:
                 laravel: [9.*, 8.*]
                 dependency-version: [prefer-lowest, prefer-stable]
                 include:
+                    - laravel: 10.*
+                      testbench: ^8.0
                     - laravel: 9.*
                       testbench: ^7.0
                     - laravel: 8.*
                       testbench: ^6.23
                 exclude:
+                    - laravel: 10.*
+                      php: 8.0
+                    - laravel: 10.*
+                      php: 7.4
                     - laravel: 9.*
                       php: 7.4
 
@@ -25,7 +31,7 @@ jobs:
 
         steps:
             - name: Checkout code
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
 
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
