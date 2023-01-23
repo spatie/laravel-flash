@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-flash` will be documented in this file
 
+## 1.9.1 - 2023-01-23
+
+- support L10
+
 ## 1.9.0 - 2022-01-12
 
 - add support for Laravel 9
