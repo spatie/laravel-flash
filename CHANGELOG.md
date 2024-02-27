@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-flash` will be documented in this file
 
+## 1.10.0 - 2024-02-27
+
+### What's Changed
+
+* Laravel 11.x Compatibility by @laravel-shift in https://github.com/spatie/laravel-flash/pull/30
+
+**Full Changelog**: https://github.com/spatie/laravel-flash/compare/1.9.1...1.10.0
+
 ## 1.9.1 - 2023-01-23
 
 - support L10
