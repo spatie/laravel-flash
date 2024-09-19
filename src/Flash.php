@@ -33,7 +33,8 @@ class Flash
         return new Message(
             $flashedMessageProperties['message'],
             $flashedMessageProperties['class'],
-            $flashedMessageProperties['level']
+            $flashedMessageProperties['level'],
+            $flashedMessageProperties['style']
         );
     }
 

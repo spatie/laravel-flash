@@ -94,20 +94,39 @@ class MyController
 }
 ```
 
+### Using inline styles to manipulate the displayed message
+
+You can add an inline style as the third parameter. This is typically used to add inline style the output in your HTML.
+
+```php
+class MyController
+{
+    public function store()
+    {
+        // …
+
+        flash('My message', 'my-class', 'width:100%');
+
+        return back();
+    }
+}
+```
+
 In your view you can use the class like this:
 
 ```blade
 @if (flash()->message)
-    <div class="{{ flash()->class }}">
+    <div class="{{ flash()->class }}" style="{{ flash()->style }}">
         {{ flash()->message }}
     </div>
 @endif
 ```
 
-You can also set an array of classes. These will be output by `flash()->class` by imploding the array with a space-delimiter.
+You can also set an array of classes or styles. These will be output by `flash()->class` or `flash()->style` by imploding the array with a space-delimiter.
 
 ```php
 flash('My message', ['my-class', 'another-class']); // flash()->class output is: 'my-class another-class'
+flash('My message', ['my-class', 'another-class'], ['width:100%', 'height:200px']); // flash()->style output is: 'width:100%;height:200px'
 ```
 
 ### Adding your own methods
@@ -138,7 +157,7 @@ The most likely scenario is that you want to consume the flash message in a view
 
 ```blade
 @if (flash()->message)
-    <div class="{{ flash()->class }}">
+    <div class="{{ flash()->class }}" style="{{ flash()->style }}">
         {{ flash()->message }}
     </div>
 

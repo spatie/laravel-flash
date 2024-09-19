@@ -5,8 +5,9 @@ use Spatie\Flash\Message;
 
 /**
  * @param  string|array  $class
+ * @param  string|array  $style
  */
-function flash(?string $text = null, $class = null): Flash
+function flash(?string $text = null, $class = null, $style = null): Flash
 {
     /** @var \Spatie\Flash\Flash $flash */
     $flash = app(Flash::class);
@@ -15,7 +16,7 @@ function flash(?string $text = null, $class = null): Flash
         return $flash;
     }
 
-    $message = new Message($text, $class);
+    $message = new Message($text, $class, null, $style);
 
     $flash->flash($message);
 

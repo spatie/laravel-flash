@@ -26,12 +26,30 @@ class FlashTest extends TestCase
     }
 
     /** @test */
+    public function it_can_set_a_flash_message_with_a_style()
+    {
+        flash('my message', null, 'width:100%');
+
+        $this->assertEquals('my message', flash()->message);
+        $this->assertEquals('width:100%', flash()->style);
+    }
+
+    /** @test */
     public function it_can_set_a_flash_message_with_multiple_classes()
     {
         flash('my message', ['my-class', 'another-class']);
 
         $this->assertEquals('my message', flash()->message);
         $this->assertEquals('my-class another-class', flash()->class);
+    }
+
+    /** @test */
+    public function it_can_set_a_flash_message_with_multiple_styles()
+    {
+        flash('my message', null,['width:100%', 'height:200px']);
+
+        $this->assertEquals('my message', flash()->message);
+        $this->assertEquals('width:100%;height:200px', flash()->style);
     }
 
     /** @test */
