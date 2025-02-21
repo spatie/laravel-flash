@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-flash` will be documented in this file
 
+## 1.10.1 - 2025-02-21
+
+### What's Changed
+
+* Laravel 12.x Compatibility by @laravel-shift in https://github.com/spatie/laravel-flash/pull/32
+
+**Full Changelog**: https://github.com/spatie/laravel-flash/compare/1.10.0...1.10.1
+
 ## 1.10.0 - 2024-02-27
 
 ### What's Changed
