@@ -35,10 +35,26 @@ class FlashTest extends TestCase
     }
 
     /** @test */
+    public function it_can_set_a_flash_message_with_level_and_meta()
+    {
+        flash('with meta', 'meta-class', 'success', [
+            'icon' => 'check',
+            'timeout' => 3000,
+        ]);
+
+        $this->assertEquals('with meta', flash()->message);
+        $this->assertEquals('meta-class', flash()->class);
+        $this->assertEquals('success', flash()->level);
+        $this->assertTrue(flash()->getMessage()->hasMeta('icon'));
+        $this->assertEquals('check', flash()->getMessage()->getMeta('icon'));
+        $this->assertEquals(3000, flash()->getMessage()->getMeta('timeout'));
+    }
+
+    /** @test */
     public function the_flash_function_is_macroable()
     {
         Flash::macro('info', function (string $message) {
-            return $this->flash(new Message($message, 'my-info-class'));
+            return $this->flash(Message::make($message, 'my-info-class'));
         });
 
         flash()->info('my message');
@@ -48,7 +64,7 @@ class FlashTest extends TestCase
     }
 
     /** @test */
-    public function multiple_methods_can_be_added_in_one_go()
+    public function multiple_levels_can_be_registered_at_once()
     {
         Flash::levels([
             'warning' => 'alert-warning',
@@ -58,54 +74,51 @@ class FlashTest extends TestCase
         flash()->warning('my warning');
         $this->assertEquals('my warning', flash()->message);
         $this->assertEquals('alert-warning', flash()->class);
+        $this->assertEquals('warning', flash()->level);
 
         flash()->error('my error');
         $this->assertEquals('my error', flash()->message);
         $this->assertEquals('alert-error', flash()->class);
-    }
-
-    /** @test */
-    public function it_can_get_the_flash_level_when_the_level_is_registered_using_the_macro()
-    {
-        Flash::macro('info', function (string $message) {
-            return $this->flash(new Message($message, 'my-info-class', 'info'));
-        });
-
-        flash()->info('my info message');
-
-        $this->assertEquals('info', flash()->level);
-    }
-
-    /** @test */
-    public function it_can_get_the_flash_level_when_levels_are_registering_in_one_go()
-    {
-        Flash::levels([
-            'warning' => 'alert-warning',
-            'error' => 'alert-error',
-        ]);
-
-        flash()->error('my error');
-
         $this->assertEquals('error', flash()->level);
     }
 
     /** @test */
-    public function when_passing_a_class_name_that_is_registered_as_method_it_will_call_that_method()
+    public function when_class_is_registered_as_macro_it_takes_precedence()
     {
+        // First use without macro override
         flash('my message', 'custom');
         $this->assertEquals('custom', flash()->class);
 
+        // Now define macro override
         Flash::levels([
             'custom' => 'overridden-custom',
         ]);
 
         flash('my message', 'custom');
         $this->assertEquals('overridden-custom', flash()->class);
+        $this->assertEquals('custom', flash()->level);
     }
 
     /** @test */
     public function empty_flash_message_returns_null()
     {
         $this->assertNull(flash()->message);
+    }
+
+    /** @test */
+    public function meta_can_be_set_and_retrieved()
+    {
+        $message = Message::make('Meta test', 'info')->withMeta('icon', 'info-icon');
+        flash()->flash($message);
+
+        $this->assertTrue(flash()->getMessage()->hasMeta('icon'));
+        $this->assertEquals('info-icon', flash()->getMessage()->getMeta('icon'));
+    }
+
+    /** @test */
+    public function message_can_be_cast_to_string()
+    {
+        $message = Message::make('Stringable');
+        $this->assertEquals('Stringable', (string) $message);
     }
 }
