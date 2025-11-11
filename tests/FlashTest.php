@@ -108,4 +108,12 @@ class FlashTest extends TestCase
     {
         $this->assertNull(flash()->message);
     }
+
+    /** @test */
+    public function get_message_returns_null_when_no_message_exists()
+    {
+        $message = flash()->getMessage();
+
+        $this->assertNull($message);
+    }
 }
