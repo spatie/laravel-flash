@@ -108,4 +108,19 @@ class FlashTest extends TestCase
     {
         $this->assertNull(flash()->message);
     }
+
+    /** @test */
+    public function it_can_get_message_object_directly()
+    {
+        $flash = app(Flash::class);
+        $message = new Message('test message', 'test-class', 'test-level');
+        $flash->flashMessage($message);
+
+        $retrievedMessage = flash()->getMessage();
+
+        $this->assertInstanceOf(Message::class, $retrievedMessage);
+        $this->assertEquals('test message', $retrievedMessage->message);
+        $this->assertEquals('test-class', $retrievedMessage->class);
+        $this->assertEquals('test-level', $retrievedMessage->level);
+    }
 }
