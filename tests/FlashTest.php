@@ -108,4 +108,14 @@ class FlashTest extends TestCase
     {
         $this->assertNull(flash()->message);
     }
+
+    /** @test */
+    public function it_overwrites_previous_flash_message()
+    {
+        flash('first message');
+        $this->assertEquals('first message', flash()->message);
+
+        flash('second message');
+        $this->assertEquals('second message', flash()->message);
+    }
 }
