@@ -3,9 +3,9 @@
 namespace Spatie\Flash\Tests;
 
 use Orchestra\Testbench\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Spatie\Flash\Flash;
 use Spatie\Flash\Message;
-use PHPUnit\Framework\Attributes\Test;
 
 class FlashTest extends TestCase
 {
