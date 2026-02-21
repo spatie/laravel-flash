@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-flash` will be documented in this file
 
+## 1.10.2 - 2026-02-21
+
+Support Laravel 13
+
 ## 1.10.1 - 2025-02-21
 
 ### What's Changed
