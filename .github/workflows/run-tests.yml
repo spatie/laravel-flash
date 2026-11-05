@@ -24,6 +24,10 @@ jobs:
         exclude:
           - laravel: 13.*
             php: 8.2
+          - laravel: 12.*
+            php: 8.6
+          - laravel: 11.*
+            php: 8.6
           - laravel: 10.*
             php: 8.6
           - laravel: 10.*
